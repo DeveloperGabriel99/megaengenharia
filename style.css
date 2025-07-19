@@ -185,8 +185,22 @@ h1, h2, h3 {
     justify-content: center;
     text-align: center;
     color: var(--white);
-    background: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+    overflow: hidden; /* Hide video overflow */
 }
+
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+    background-size: cover;
+}
+
 
 .hero-overlay {
     position: absolute;
@@ -195,11 +209,12 @@ h1, h2, h3 {
     width: 100%;
     height: 100%;
     background-color: rgba(10, 34, 57, 0.7);
+    z-index: 1; /* Ensure overlay is above video */
 }
 
 .hero-content {
     position: relative;
-    z-index: 2;
+    z-index: 2; /* Ensure content is above overlay */
 }
 
 .hero-title {
@@ -216,7 +231,7 @@ h1, h2, h3 {
 }
 
 /* --- Sections General Padding --- */
-.services-section, .about-section, .contact-section, .about-company-section {
+.services-section, .about-section, .contact-section, .about-company-section, .gallery-section {
     padding: 6rem 0;
 }
 
@@ -259,6 +274,7 @@ h1, h2, h3 {
 /* --- About Company Section --- */
 .about-company-section {
     background-color: var(--white);
+    background-image: url('https://www.transparenttextures.com/patterns/old-paper.png');
 }
 
 .about-company-content {
@@ -323,6 +339,38 @@ h1, h2, h3 {
 .engineer-name {
     font-size: 1.75rem;
     margin-bottom: 0.5rem;
+}
+
+/* --- Gallery Section --- */
+.gallery-section, .gallery-page-section {
+    background-color: var(--white);
+    background-image: url('https://www.transparenttextures.com/patterns/old-paper.png');
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.gallery-item {
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 /* --- Contact Section --- */
@@ -426,20 +474,72 @@ h1, h2, h3 {
     opacity: 0.7;
 }
 
-.social-links {
-    display: flex;
-    gap: 1.5rem;
-}
-
 .social-links a {
     color: var(--light-text);
     font-size: 1.5rem;
     transition: color 0.3s, transform 0.3s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
-.social-links a:hover {
+.social-links a:hover,
+.social-links a:hover span {
     color: var(--gold);
-    transform: scale(1.1);
+    transform: scale(1.05);
+}
+
+.social-links a span {
+    font-size: 1rem;
+    font-family: var(--font-body);
+    transition: color 0.3s;
+}
+
+
+/* --- Image Modal (Lightbox) --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1010;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 900px;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 
