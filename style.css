@@ -186,8 +186,8 @@ h1, h2, h3 {
     justify-content: center;
     text-align: center;
     color: var(--white);
-    /* Substituído o vídeo por uma imagem de fundo */
-    background: url('fundo.jpeg') no-repeat center center/cover;
+    /* Imagem de fundo para DESKTOP */
+    background: var(--dark-gray-bg) url('fundo.jpeg') no-repeat center center/contain;
 }
 
 .hero-overlay {
@@ -555,6 +555,11 @@ h1, h2, h3 {
 @media (max-width: 767px) {
     :root {
         --header-height: 70px;
+    }
+
+    /* Imagem de fundo para MOBILE */
+    .hero-section {
+        background: var(--dark-gray-bg) url('fundocel.jpeg') no-repeat center center/cover;
     }
     
     .menu-toggle {
