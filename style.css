@@ -26,6 +26,8 @@
 html {
     scroll-behavior: smooth;
     font-size: 16px;
+    /* CORREÇÃO 1: Impede que a página crie uma barra de rolagem horizontal em telemóveis */
+    overflow-x: hidden;
 }
 
 body {
@@ -33,7 +35,7 @@ body {
     color: var(--graphite-gray);
     background-color: var(--white);
     line-height: 1.6;
-    overflow-x: hidden; /* Prevent horizontal scroll */
+    /* A propriedade overflow-x foi movida para a tag 'html' para uma correção mais eficaz */
 }
 
 /* Custom Cursor for Desktop */
@@ -559,7 +561,7 @@ h1, h2, h3 {
 }
 
 /* Mobile menu adjustments */
-@media (max-width: 767px) {
+@media (max-width: 500px) {
     :root {
         --header-height: 70px;
     }
@@ -567,6 +569,8 @@ h1, h2, h3 {
     .menu-toggle {
         display: block;
         z-index: 1001;
+        /* CORREÇÃO 2: Garante que o botão do menu fique por cima do painel */
+        position: relative;
     }
 
     .main-nav .nav-links {
@@ -582,6 +586,7 @@ h1, h2, h3 {
         gap: 2.5rem;
         transform: translateX(100%);
         transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        z-index: 1000; /* Garante que o painel fique abaixo do botão de menu */
     }
 
     .main-nav .nav-links.active {
