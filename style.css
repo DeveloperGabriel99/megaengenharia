@@ -186,8 +186,8 @@ h1, h2, h3 {
     justify-content: center;
     text-align: center;
     color: var(--white);
-    /* Imagem de fundo para DESKTOP */
-    background: var(--dark-gray-bg) url('fundo.jpeg') no-repeat center center/contain;
+    /* CORREÇÃO: Imagem de fundo para DESKTOP, garantindo que a imagem preencha o ecrã */
+    background: url('fundo.jpeg') no-repeat center center/cover;
 }
 
 .hero-overlay {
