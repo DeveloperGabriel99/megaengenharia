@@ -231,7 +231,7 @@ h1, h2, h3 {
 }
 
 /* --- Sections General Padding --- */
-.services-section, .about-section, .contact-section, .about-company-section, .gallery-section {
+.services-section, .about-section, .contact-section, .about-company-section, .gallery-section, .gallery-page-section {
     padding: 6rem 0;
 }
 
@@ -242,7 +242,7 @@ h1, h2, h3 {
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
 }
 
@@ -342,14 +342,14 @@ h1, h2, h3 {
 }
 
 /* --- Gallery Section --- */
-.gallery-section, .gallery-page-section {
+.gallery-page-section {
     background-color: var(--white);
     background-image: url('https://www.transparenttextures.com/patterns/old-paper.png');
 }
 
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
 }
 
@@ -465,6 +465,8 @@ h1, h2, h3 {
 }
 
 .footer-logo {
+    max-width: 80%; /* Garante que a logo não ultrapasse o container */
+    height: auto; /* Mantém a proporção */
     opacity: 0.8;
     margin-bottom: 0.5rem;
 }
@@ -514,7 +516,7 @@ h1, h2, h3 {
 .modal-content {
     margin: auto;
     display: block;
-    width: 80%;
+    width: 90%; /* Ajustado para telas menores */
     max-width: 900px;
     animation-name: zoom;
     animation-duration: 0.6s;
