@@ -25,7 +25,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const navLinkItems = document.querySelectorAll('.nav-links a');
 
     if (menuToggle && navLinks) {
-        menuToggle.addEventListener('click', () => {
+        menuToggle.addEventListener('click', (event) => {
+            event.stopPropagation(); // Impede que o clique se propague para o document
             navLinks.classList.toggle('active');
         });
     }
