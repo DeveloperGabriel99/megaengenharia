@@ -26,7 +26,7 @@
 html {
     scroll-behavior: smooth;
     font-size: 16px;
-    overflow-x: hidden; /* Mantém a prevenção de rolagem no nível mais alto */
+    overflow-x: hidden;
 }
 
 body {
@@ -34,7 +34,6 @@ body {
     color: var(--graphite-gray);
     background-color: var(--white);
     line-height: 1.6;
-    /* CORREÇÃO: Garante que o corpo da página também não crie uma barra de rolagem horizontal */
     overflow-x: hidden;
 }
 
@@ -187,22 +186,9 @@ h1, h2, h3 {
     justify-content: center;
     text-align: center;
     color: var(--white);
-    overflow: hidden; /* Hide video overflow */
+    /* Substituído o vídeo por uma imagem de fundo */
+    background: url('fundo.jpeg') no-repeat center center/cover;
 }
-
-.hero-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: -100;
-    transform: translateX(-50%) translateY(-50%);
-    background-size: cover;
-}
-
 
 .hero-overlay {
     position: absolute;
@@ -210,19 +196,22 @@ h1, h2, h3 {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(10, 34, 57, 0.3); /* Opacidade reduzida para tornar o vídeo mais nítido */
-    z-index: 1; /* Ensure overlay is above video */
+    /* Efeito de escurecimento reativado para melhorar a legibilidade */
+    background-color: rgba(10, 34, 57, 0.5); 
+    z-index: 1;
 }
 
 .hero-content {
     position: relative;
-    z-index: 2; /* Ensure content is above overlay */
+    z-index: 2;
 }
 
 .hero-title {
     font-size: 3.5rem;
     color: var(--white);
     margin-bottom: 1rem;
+    /* Sombra de texto removida, já não é necessária */
+    text-shadow: none;
 }
 
 .hero-subtitle {
@@ -230,6 +219,8 @@ h1, h2, h3 {
     max-width: 600px;
     margin: 0 auto 2rem;
     opacity: 0.9;
+    /* Sombra de texto removida, já não é necessária */
+    text-shadow: none;
 }
 
 /* --- Sections General Padding --- */
