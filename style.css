@@ -26,8 +26,7 @@
 html {
     scroll-behavior: smooth;
     font-size: 16px;
-    /* CORREÇÃO 1: Impede que a página crie uma barra de rolagem horizontal em telemóveis */
-    overflow-x: hidden;
+    overflow-x: hidden; /* Mantém a prevenção de rolagem no nível mais alto */
 }
 
 body {
@@ -35,7 +34,8 @@ body {
     color: var(--graphite-gray);
     background-color: var(--white);
     line-height: 1.6;
-    /* A propriedade overflow-x foi movida para a tag 'html' para uma correção mais eficaz */
+    /* CORREÇÃO: Garante que o corpo da página também não crie uma barra de rolagem horizontal */
+    overflow-x: hidden;
 }
 
 /* Custom Cursor for Desktop */
@@ -561,7 +561,7 @@ h1, h2, h3 {
 }
 
 /* Mobile menu adjustments */
-@media (max-width: 500px) {
+@media (max-width: 767px) {
     :root {
         --header-height: 70px;
     }
@@ -569,7 +569,6 @@ h1, h2, h3 {
     .menu-toggle {
         display: block;
         z-index: 1001;
-        /* CORREÇÃO 2: Garante que o botão do menu fique por cima do painel */
         position: relative;
     }
 
