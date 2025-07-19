@@ -38,6 +38,20 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Adicionado: Fecha o menu ao clicar fora dele
+    document.addEventListener('click', function(event) {
+        if (navLinks && navLinks.classList.contains('active')) {
+            const isClickInsideNav = navLinks.contains(event.target);
+            const isClickOnToggle = menuToggle.contains(event.target);
+
+            // Se o clique não for no botão do menu nem dentro da navegação, fecha o menu.
+            if (!isClickInsideNav && !isClickOnToggle) {
+                navLinks.classList.remove('active');
+            }
+        }
+    });
+
+
     // --- Smooth Scrolling for Anchor Links (on the main page) ---
     // This part ensures that links with '#' scroll smoothly only on the index.html page
     if (document.querySelector('.hero-section')) {
